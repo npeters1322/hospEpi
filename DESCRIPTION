@@ -1,0 +1,15 @@
+Package: hospEpi
+Type: Package
+Title: Assists with Various Hospital Epidemiology Tasks
+Version: 0.1.0
+Author: Nate Peters <npeters1322@gmail.com>
+Maintainer: Nate Peters <npeters1322@gmail.com>
+Description: This package assists with performing different epidemiological tasks in a hospital setting,
+  like providing statistics related to diseases and exposures (ex. odds ratio) and networks of patient
+  movements.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Imports: 
+    fastDummies
