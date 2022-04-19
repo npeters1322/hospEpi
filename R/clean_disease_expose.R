@@ -40,9 +40,21 @@ clean_disease_expose <- function(data, disease, noDisease = NULL, exposures) {
 
   disease_exposure_dummies <- dummy_cols(disease_exposures)
 
-  numeric_cols <- unlist(lapply(disease_exposure_dummies, is.numeric))
+  binary_cols <- unlist(lapply(disease_exposure_dummies, function(x){
 
-  data_binary <- disease_exposure_dummies[, numeric_cols]
+    if(isFALSE(setequal(sort(unique(x)), c(0,1)))) {
+
+      return(FALSE)
+
+    } else {
+
+      return(TRUE)
+
+    }
+
+  }))
+
+  data_binary <- disease_exposure_dummies[, binary_cols]
 
   if(is.null(noDisease) || noDisease == 0) {
 
@@ -52,7 +64,15 @@ clean_disease_expose <- function(data, disease, noDisease = NULL, exposures) {
 
     no_disease_col_logi <- which(names(data_binary) %in% paste0(names(disease_exposures)[1], "_", noDisease))
 
-    data_binary <- data_binary[, -no_disease_col_logi]
+    if(length(no_disease_col_logi) == 0) {
+
+      data_binary <- data_binary
+
+    } else {
+
+      data_binary <- data_binary[, -no_disease_col_logi]
+
+    }
 
   }
 
