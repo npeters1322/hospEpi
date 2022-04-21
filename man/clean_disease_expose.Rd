@@ -19,5 +19,13 @@ clean_disease_expose(data, disease, noDisease = NULL, exposures)
 A data.frame containing binary variables for disease and exposure data
 }
 \description{
-Takes disease-exposure data and makes all columns binary, which is needed to use the rest of the package
+Takes disease-exposure data and makes all columns binary, which is needed to use other functions in the package
+}
+\examples{
+de_data <- disease_exposure_data
+cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3"))
+
+cleaned2 <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c(3,4,5))
+
+cleaned3 <- clean_disease_expose(data = de_data, disease = 2, exposures = c("exposure1", "exposure2", "exposure3"))
 }

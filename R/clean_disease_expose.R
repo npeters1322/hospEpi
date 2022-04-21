@@ -1,6 +1,6 @@
 #' @title Disease-Exposure Cleaning Function
 #'
-#' @description Takes disease-exposure data and makes all columns binary, which is needed to use the rest of the package
+#' @description Takes disease-exposure data and makes all columns binary, which is needed to use other functions in the package
 #'
 #' @param data The \code{\link{data.frame}} containing disease-exposure data
 #' @param disease Quoted name or unquoted numeric value of the column containing the disease status data
@@ -11,7 +11,13 @@
 #' @export
 #'
 #' @importFrom fastDummies dummy_cols
+#' @examples
+#' de_data <- disease_exposure_data
+#' cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3"))
 #'
+#' cleaned2 <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c(3,4,5))
+#'
+#' cleaned3 <- clean_disease_expose(data = de_data, disease = 2, exposures = c("exposure1", "exposure2", "exposure3"))
 clean_disease_expose <- function(data, disease, noDisease = NULL, exposures) {
 
   data <- as.data.frame(data)
@@ -58,15 +64,27 @@ clean_disease_expose <- function(data, disease, noDisease = NULL, exposures) {
 
   if(is.null(noDisease) || noDisease == 0) {
 
-    data_binary <- data_binary
+    diseaseCols <- which(startsWith(names(data_binary), names(disease_exposures)[1]))
+
+    exposureCols <- which(!startsWith(names(data_binary), names(disease_exposures)[1]))
+
+    data_binary <- data_binary[,c(diseaseCols, exposureCols)]
 
   } else {
+
+    diseaseCols <- which(startsWith(names(data_binary), names(disease_exposures)[1]))
+
+    exposureCols <- which(!startsWith(names(data_binary), names(disease_exposures)[1]))
+
+    data_binary <- data_binary[,c(diseaseCols, exposureCols)]
 
     no_disease_col_logi <- which(names(data_binary) %in% paste0(names(disease_exposures)[1], "_", noDisease))
 
     if(length(no_disease_col_logi) == 0) {
 
       data_binary <- data_binary
+
+      warning(paste0("Disease status = ", noDisease, " not found. Please make sure to correctly spell it."))
 
     } else {
 
