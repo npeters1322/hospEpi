@@ -15,7 +15,7 @@
 #' de_object <- new_disease_expose(cleaned_de_data, disease = 1, exposures = 2:8)
 new_disease_expose <- function(x, disease, exposures) {
 
-  stopifnot(is.data.frame(x))
+  stopifnot(is.data.frame(x), length(disease) == 1)
 
   data <- x
 
@@ -39,9 +39,9 @@ new_disease_expose <- function(x, disease, exposures) {
 
   }
 
-  disExp <- data[,c(disease, exposures)]
+  dis_exp <- data[,c(disease, exposures)]
 
-  notBinary <- lapply(disExp, function(x){
+  not_binary <- lapply(dis_exp, function(x){
 
     if(isFALSE(setequal(sort(unique(x)), c(0,1)))) {
       stop("All columns must be binary. The clean_disease_expose function could help with that.",
@@ -50,6 +50,6 @@ new_disease_expose <- function(x, disease, exposures) {
 
   })
 
-  structure(disExp, class = c("disease_expose", "data.frame"))
+  structure(dis_exp, class = c("disease_expose", "data.frame"))
 
 }

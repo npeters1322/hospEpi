@@ -64,19 +64,19 @@ clean_disease_expose <- function(data, disease, noDisease = NULL, exposures) {
 
   if(is.null(noDisease) || noDisease == 0) {
 
-    diseaseCols <- which(startsWith(names(data_binary), names(disease_exposures)[1]))
+    disease_cols <- which(startsWith(names(data_binary), names(disease_exposures)[1]))
 
-    exposureCols <- which(!startsWith(names(data_binary), names(disease_exposures)[1]))
+    exposure_cols <- which(!startsWith(names(data_binary), names(disease_exposures)[1]))
 
-    data_binary <- data_binary[,c(diseaseCols, exposureCols)]
+    data_binary <- data_binary[,c(disease_cols, exposure_cols)]
 
   } else {
 
-    diseaseCols <- which(startsWith(names(data_binary), names(disease_exposures)[1]))
+    disease_cols <- which(startsWith(names(data_binary), names(disease_exposures)[1]))
 
-    exposureCols <- which(!startsWith(names(data_binary), names(disease_exposures)[1]))
+    exposure_cols <- which(!startsWith(names(data_binary), names(disease_exposures)[1]))
 
-    data_binary <- data_binary[,c(diseaseCols, exposureCols)]
+    data_binary <- data_binary[,c(disease_cols, exposure_cols)]
 
     no_disease_col_logi <- which(names(data_binary) %in% paste0(names(disease_exposures)[1], "_", noDisease))
 
