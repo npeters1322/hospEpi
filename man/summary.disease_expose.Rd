@@ -12,7 +12,7 @@
 \item{...}{additional arguments to be passed to \code{\link{rbindlist}}, such as \code{fill}}
 }
 \value{
-A \code{\link{data.table}} object containing statistics for each disease-exposure combination
+A \code{\link{data.frame}} object containing statistics for each disease-exposure combination
 }
 \description{
 Summarize disease-exposure data by finding various statistics (incidence, risk ratio, odds ratio, Fisher p-value, Chi-square p-value) for each disease-exposure combination.

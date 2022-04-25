@@ -5,7 +5,7 @@
 #' @param object an object of class \code{disease_expose}, created with \code{\link{disease_expose}}
 #' @param ... additional arguments to be passed to \code{\link{rbindlist}}, such as \code{fill}
 #'
-#' @return A \code{\link{data.table}} object containing statistics for each disease-exposure combination
+#' @return A \code{\link{data.frame}} object containing statistics for each disease-exposure combination
 #' @export
 #'
 #' @importFrom data.table rbindlist
@@ -20,6 +20,8 @@ summary.disease_expose <- function(object, ...) {
   })
 
   final_epi_stats <- rbindlist(epi_stats_list, ...)
+
+  final_epi_stats <- as.data.frame(final_epi_stats)
 
   rownames(final_epi_stats) <- c(names(object[-1]))
 
