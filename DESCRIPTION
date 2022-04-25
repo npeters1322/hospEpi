@@ -13,11 +13,15 @@ LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     data.table,
+    dplyr,
     fastDummies,
     ggplot2,
     gridExtra,
     gtable,
+    igraph,
+    magrittr,
     miniUI,
+    rlang,
     shiny,
     snakecase,
     stats
