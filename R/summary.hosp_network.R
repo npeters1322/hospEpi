@@ -24,6 +24,16 @@
 #'
 #' @importFrom igraph graph_from_data_frame largest_cliques hub_score authority_score edge_density mean_distance betweenness reciprocity degree eigen_centrality assortativity_degree
 #'
+#' @examples
+#' hn_data <- hosp_network_data # read in example data provided in package
+#'
+#' cleaned_hn_data <- clean_hosp_network(data = hn_data, uniqueID = UniqueEncountID, startDate = BeginDate, endDate = EndDate, unitName = UnitName, roomNum = RoomNumber) # clean the data using specific columns in the dataset
+#'
+#' hn_object <- hosp_network(x = cleaned_hn_data, fromUnit = UnitName, toUnit = next_unit, fromRoom = RoomNumber, toRoom = next_room) # create an object of class hosp_network
+#'
+#' summary(hn_object) # create summary for hosp_network object's unit data
+#'
+#' summary(hn_object, by = "room", scale = FALSE) # create summary for hosp_network object's room data but do not scale hub scores and authority scores
 summary.hosp_network <- function(object, by = c("unit", "room"), ...) {
 
   by <- match.arg(by)

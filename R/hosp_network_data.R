@@ -1,4 +1,4 @@
-#' @title Sample Location History Data
+#' @title Sample Location History/Hospital Network Data
 #'
 #' @description A simple example of a \code{data.frame} of location history data that could be used with this package and is used in examples
 #'
@@ -10,4 +10,4 @@
 #' \item{UnitName}{character column specifying the unit name the patient was in during that encounter}
 #' \item{RoomNumber}{character column specifying the room number the patient was in during that encounter}
 #' }
-"location_history_data"
+"hosp_network_data"

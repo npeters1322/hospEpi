@@ -10,11 +10,11 @@ exposure2 <- sample(c("Yes", "No"), size = 500, replace = TRUE)
 
 exposure3 <- sample(c("shop worker", "education worker", "office worker", "child"), size = 500, replace = TRUE)
 
-disease_exposure_data <- data.frame(id = id,
+disease_expose_data <- data.frame(id = id,
                                     disease = disease,
                                     exposure1 = exposure1,
                                     exposure2 = exposure2,
                                     exposure3 = exposure3
 )
 
-usethis::use_data(disease_exposure_data, compress = "xz")
+usethis::use_data(disease_expose_data, compress = "xz")

@@ -1,4 +1,4 @@
-#' @title Create a 'disease_expose' Object
+#' @title Constructor to Create a 'disease_expose' Object
 #'
 #' @description Creates an object of class disease_expose with the data provided
 #'
@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' de_data <- disease_exposure_data
+#' de_data <- disease_expose_data
 #' cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3"))
 #' de_object <- new_disease_expose(cleaned_de_data, disease = 1, exposures = 2:8)
 new_disease_expose <- function(x, disease, exposures) {

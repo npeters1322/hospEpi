@@ -1,4 +1,4 @@
-#' @title Create a 'disease_expose' Object
+#' @title Helper to Create a 'disease_expose' Object
 #'
 #' @description Creates an object of class disease_expose with the data provided and selected in the Shiny gadget
 #'
@@ -9,6 +9,16 @@
 #'
 #' @importFrom miniUI miniPage gadgetTitleBar miniContentPanel
 #' @importFrom shiny radioButtons checkboxGroupInput observe updateCheckboxGroupInput observeEvent stopApp runGadget dialogViewer
+#'
+#' @examples
+#' \dontrun{
+#'
+#' de_data <- disease_expose_data # use the example data in the package
+#'
+#' cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3")) # clean the data using specific columns in the dataset
+#'
+#' de_object <- disease_expose(cleaned_de_data) # simply call the function and select specifics in the Shiny gadget that pops up
+#' }
 disease_expose <- function(x) {
 
   x <- as.data.frame(x)

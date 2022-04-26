@@ -1,15 +1,13 @@
-#' Create an Object of Class hosp_network
+#' Constructor to Create an Object of Class hosp_network
 #'
-#' @param x A \code{\link{data.frame}} containing the patient location history data
-#' @param fromUnit Optional, unquoted column name from \code{x} containing the from unit data
-#' @param toUnit Optional, unquoted column name from \code{x} containing the to unit data
-#' @param fromRoom Optional, unquoted column name from \code{x} containing the from room data
-#' @param toRoom Optional, unquoted column name from \code{x} containing the to room data
+#' @param x A \code{\link{data.frame}} containing the patient location history data provided to \code{\link{hosp_network}}
+#' @param fromUnit Optional, unquoted column name from \code{x} containing the from unit data provided to \code{\link{hosp_network}}
+#' @param toUnit Optional, unquoted column name from \code{x} containing the to unit data provided to \code{\link{hosp_network}}
+#' @param fromRoom Optional, unquoted column name from \code{x} containing the from room data provided to \code{\link{hosp_network}}
+#' @param toRoom Optional, unquoted column name from \code{x} containing the to room data provided to \code{\link{hosp_network}}
 #'
 #' @return An object of class hosp_network
-#' @export
-#'
-new_hosp_network <- function(x, fromUnit = NULL, toUnit = NULL, fromRoom = NULL, toRoom = NULL) {
+new_hosp_network <- function(x, fromUnit, toUnit, fromRoom, toRoom) {
 
   stopifnot(is.data.frame(x))
 

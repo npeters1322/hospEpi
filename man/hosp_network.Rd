@@ -2,7 +2,7 @@
 % Please edit documentation in R/hosp_network.R
 \name{hosp_network}
 \alias{hosp_network}
-\title{Create an Object of Class hosp_network}
+\title{Helper Function to Create an Object of Class hosp_network}
 \usage{
 hosp_network(x, fromUnit = NULL, toUnit = NULL, fromRoom = NULL, toRoom = NULL)
 }
@@ -21,5 +21,20 @@ hosp_network(x, fromUnit = NULL, toUnit = NULL, fromRoom = NULL, toRoom = NULL)
 An object of class hosp_network
 }
 \description{
-Create an Object of Class hosp_network
+Helper Function to Create an Object of Class hosp_network
+}
+\examples{
+hn_data <- hosp_network_data # read in example data provided in package
+
+cleaned_hn_data <- clean_hosp_network(data = hn_data, uniqueID = UniqueEncountID, startDate = BeginDate, endDate = EndDate, unitName = UnitName, roomNum = RoomNumber) # clean the data using specific columns in the dataset
+
+hn_object <- hosp_network(x = cleaned_hn_data, fromUnit = UnitName, toUnit = next_unit, fromRoom = RoomNumber, toRoom = next_room) # create an object of class hosp_network
+
+hn_object2 <- hosp_network(x = cleaned_hn_data, fromUnit = UnitName, toUnit = next_unit) # create an object of class hosp_network, but only with unit data
+
+\dontrun{
+
+hn_object3 <- hosp_network(x = cleaned_hn_data, fromUnit = UnitName, toUnit = next_unit, fromRoom = RoomNumber) # will throw an error because the next room is not given, but the original room is
+
+}
 }

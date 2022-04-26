@@ -22,10 +22,10 @@ A data.frame containing binary variables for disease and exposure data
 Takes disease-exposure data and makes all columns binary, which is needed to use other functions in the package
 }
 \examples{
-de_data <- disease_exposure_data
-cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3"))
+de_data <- disease_expose_data # read in example data provided in package
+cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3")) # clean the data using specific columns in the dataset
 
-cleaned2 <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c(3,4,5))
+cleaned2 <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c(3,4,5)) # clean the data again, but use the number of each exposure column instead
 
-cleaned3 <- clean_disease_expose(data = de_data, disease = 2, exposures = c("exposure1", "exposure2", "exposure3"))
+cleaned3 <- clean_disease_expose(data = de_data, disease = 2, exposures = c("exposure1", "exposure2", "exposure3")) # clean the data, but use the number of the disease column instead of the name
 }

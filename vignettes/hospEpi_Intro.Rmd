@@ -1,0 +1,43 @@
+---
+title: "Introduction to hospEpi"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to hospEpi}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hospEpi)
+```
+
+## Background
+
+A very detailed introduction is given which details three challenges and exactly how the software packages addresses each of them. Other examples of packages (if available) are described and it is clear exactly what the package builds on.
+
+This R package, `hospEpi`, is designed to provide useful functions for epidemiological analyses in a hospital setting. For example, it allows people to easily study location history/network data and also disease-exposure data. Currently, there are a couple of other R packages that provide tools for epidemiological analyses, like `epiR` and `epitools`. However, my package works a little differently, as it focuses more on applying tools for analyses in a hospital setting. It also addresses a few challenges that make it stand out. Those are:
+
+* It provides multiple plot functions to quickly visualize some of your data. In other packages for epidemiology, plotting seems to mostly be up to the user to figure out. However, in my package, multiple plot functions are provided to visualize the data. For example, you can visualize the network of patient location history data or see how many of those with a certain exposure/risk factor developed a disease. This functionality sets my package apart from others.
+* It provides multiple cleaning functions, which can help you get your data in the correct format before using the rest of the functions. Oftentimes, packages are made to work with data that is already in a specific format. In the best case scenario, data coming into my functions would also be clean already, but that might not be the case. With that in mind, my package provides a couple of functions to help clean your data. For example, your disease-exposure data might have columns that are not binary (made up of 0s and 1s), which is necessary for multiple functions in my package. Rather than making you take the time to fix all of that on your own, one of my cleaning functions can help to get your data in the correct format. Another cleaning function is also provided for another use, which will be seen later. Providing cleaning functions sets my package apart from others, as it does not make the user do all the work to clean their data.
+* It can easily assist in analyzing multiple exposures/risk factors against a disease, and can quickly report multiple statistics for all of those combinations. In a hospital, you might often look at multiple exposures/risk factors against a disease, like having diabetes, having heart disease, or having surgery during a stay against developing a hospital-acquired disease. Rather than only allowing one to look at one disease-exposure combination at a time, my package has built-in functions that let one study all combinations at once and get many statistics all at once. As a result, you will be able to compare all your exposures against each other to see which seem the most associated with the disease/outcome. 
+
+As seen, while there are other packages for epidemiological analyses, my package adds other functionality that would be helpful. While initially created for working with hospital data, it could easily be used for normal epidemiological analyses. It is not an all-encompassing package, so other epidemiology packages should be checked out, but my package does provide a couple useful tools that are not provided elsewhere.
+
+## How to Use hospEpi
+A detailed demonstration and two examples are given, which demonstrate all primary functions (functions exported from the package namespace) allowing future users to actually use the package. Use cases are clarified and simple to understand with the help of the demonstration/example.
+
+#### Working with hosp_network Data
+
+#### Working with disease_expose Data
+
+## Future Plans
+Multiple options for future work are mentioned, and detailed plans are given for accomplishing these goals set forth.
+
+There are multiple future plans for this package which will hopefully make it even more useful.

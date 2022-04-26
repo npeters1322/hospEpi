@@ -2,7 +2,7 @@
 % Please edit documentation in R/disease_expose.R
 \name{disease_expose}
 \alias{disease_expose}
-\title{Create a 'disease_expose' Object}
+\title{Helper to Create a 'disease_expose' Object}
 \usage{
 disease_expose(x)
 }
@@ -14,4 +14,14 @@ An object of class disease_expose and data.frame containing binary variables for
 }
 \description{
 Creates an object of class disease_expose with the data provided and selected in the Shiny gadget
+}
+\examples{
+\dontrun{
+
+de_data <- disease_expose_data # use the example data in the package
+
+cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3")) # clean the data using specific columns in the dataset
+
+de_object <- disease_expose(cleaned_de_data) # simply call the function and select specifics in the Shiny gadget that pops up
+}
 }

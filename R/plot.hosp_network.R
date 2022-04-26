@@ -12,6 +12,18 @@
 #'
 #' @importFrom igraph graph_from_data_frame plot.igraph hub_score authority_score layout.fruchterman.reingold
 #'
+#' @examples
+#' hn_data <- hosp_network_data # read in example data provided in package
+#'
+#' cleaned_hn_data <- clean_hosp_network(data = hn_data, uniqueID = UniqueEncountID, startDate = BeginDate, endDate = EndDate, unitName = UnitName, roomNum = RoomNumber) # clean the data using specific columns in the dataset
+#'
+#' hn_object <- hosp_network(x = cleaned_hn_data, fromUnit = UnitName, toUnit = next_unit, fromRoom = RoomNumber, toRoom = next_room) # create an object of class hosp_network
+#'
+#' plot(hn_object) # plot the hosp_network object using the unit data and type = simple, as those are the default options
+#'
+#' plot(hn_object, by = "room", type = "hub score") # plot hosp_network object using room data and type = hub score
+#'
+#' plot(hn_object, by = "unit", type = "authority score", vertex.color = "red") # plot hosp_network object using unit data, type = authority score, and vertex color = red
 plot.hosp_network <- function(x, by = c("unit", "room"), type = c("simple", "hub score", "authority score"), ...) {
 
   by <- match.arg(by)

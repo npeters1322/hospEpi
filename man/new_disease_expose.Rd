@@ -2,7 +2,7 @@
 % Please edit documentation in R/new_disease_expose.R
 \name{new_disease_expose}
 \alias{new_disease_expose}
-\title{Create a 'disease_expose' Object}
+\title{Constructor to Create a 'disease_expose' Object}
 \usage{
 new_disease_expose(x, disease, exposures)
 }
@@ -20,7 +20,7 @@ An object of class disease_expose and data.frame containing binary variables for
 Creates an object of class disease_expose with the data provided
 }
 \examples{
-de_data <- disease_exposure_data
+de_data <- disease_expose_data
 cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3"))
 de_object <- new_disease_expose(cleaned_de_data, disease = 1, exposures = 2:8)
 }

@@ -9,6 +9,21 @@
 #' @export
 #'
 #' @importFrom data.table rbindlist
+#'
+#' @examples
+#' de_data <- disease_expose_data # use the example data in the package
+#'
+#' cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3")) # clean the data using specific columns in the dataset
+#'
+#' \dontrun{
+#' de_object <- disease_expose(cleaned_de_data) # the best way to create a disease_expose object is by using the helper and selecting your choices in the Shiny gadget
+#' }
+#'
+#' de_object <- new_disease_expose(cleaned_de_data, disease = 1, exposures = 2:8) # another way to create a disease_expose object is to use the constructor and manually enter the information
+#'
+#' summary(object = de_object) # create a summary of your disease_expose object
+#'
+#' summary(object = de_object, idcol = TRUE) # provide an input (idcol) to rbindlist to customize the summary a little more
 summary.disease_expose <- function(object, ...) {
 
   epi_stats_list <- lapply(seq_along(object[,-1]), function(x) {

@@ -1,4 +1,4 @@
-location_history_data <- data.frame(UniqueEncountID = c(1,1,1,2,2,3,4,4,4,4,5,5,5,5,5,5),
+hosp_network_data <- data.frame(UniqueEncountID = c(1,1,1,2,2,3,4,4,4,4,5,5,5,5,5,5),
                                     BeginDate = c("2022-01-02 01:23:45", "2022-01-03 13:24:20",
                                                   "2022-01-03 13:21:34", "2022-01-04 11:31:17",
                                                   "2022-01-07 09:13:05", "2022-01-05 13:04:06",
@@ -21,4 +21,4 @@ location_history_data <- data.frame(UniqueEncountID = c(1,1,1,2,2,3,4,4,4,4,5,5,
                                                    "1B13", "2B18", "2B20", "3C4", "1C10", "1C12",
                                                    "1C10", "2A12", "2A14", "2B3"))
 
-usethis::use_data(location_history_data, compress = "xz")
+usethis::use_data(hosp_network_data, compress = "xz")

@@ -10,4 +10,4 @@
 #' \item{exposure2}{character column specifying if the person has/had the exposure ("Yes") or not ("No")}
 #' \item{exposure3}{character column specifying which category of an exposure the person falls into (are they a child, office worker, shop worker, etc.)}
 #' }
-"disease_exposure_data"
+"disease_expose_data"
