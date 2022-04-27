@@ -14,12 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-After installing, you can load the library like this:
-
-```{r setup}
-library(hospEpi)
-```
-
 ## Background
 
 This R package, `hospEpi`, is designed to provide useful functions for epidemiological analyses in a hospital setting. I was motivated to create this package because of my work as an intern for the Indiana University Health Infection Prevention team, as their main analyst, my supervisor, often does work as a hospital epidemiologist of sorts and uses R to do some of his analyses. Some examples of what my package does are that it allows people to easily study patient location history/network data and also disease-exposure/disease-risk factor data. Currently, there are a couple of other R packages that provide tools for epidemiological analyses, like `epiR` and `epitools`. However, my package works a little differently, as it focuses more on applying tools for analyses in a hospital setting. It also addresses a few challenges that make it stand out. Those are:
@@ -31,6 +25,12 @@ This R package, `hospEpi`, is designed to provide useful functions for epidemiol
 As seen, while there are other packages for epidemiological analyses, my package adds other functionality that would be helpful. While initially created for working with hospital data, it could easily be used for other epidemiological analyses. It is not an all-encompassing package, so other epidemiology packages should be checked out, but my package does provide a couple useful tools that are not provided elsewhere.
 
 ## How to Use hospEpi
+
+After installing, you can load the library like this:
+
+```{r setup}
+library(hospEpi)
+```
 
 As of now, there are two main use cases for this package: analyzing patient location/hospital network data and analyzing disease-exposure/disease-risk factor data. Below, I will walk you through the process of doing each.
 
