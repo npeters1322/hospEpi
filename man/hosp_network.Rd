@@ -2,7 +2,7 @@
 % Please edit documentation in R/hosp_network.R
 \name{hosp_network}
 \alias{hosp_network}
-\title{Helper Function to Create an Object of Class hosp_network}
+\title{Helper Function to Create an Object of Class \code{hosp_network}}
 \usage{
 hosp_network(x, fromUnit = NULL, toUnit = NULL, fromRoom = NULL, toRoom = NULL)
 }
@@ -18,10 +18,10 @@ hosp_network(x, fromUnit = NULL, toUnit = NULL, fromRoom = NULL, toRoom = NULL)
 \item{toRoom}{Optional, unquoted column name from \code{x} containing the to room data}
 }
 \value{
-An object of class hosp_network
+An object of class \code{hosp_network} and \code{data.frame}
 }
 \description{
-Helper Function to Create an Object of Class hosp_network
+Creates an object of class \code{hosp_network} with the data and columns provided, allowing functions for \code{hosp_network} objects to be used
 }
 \examples{
 hn_data <- hosp_network_data # read in example data provided in package

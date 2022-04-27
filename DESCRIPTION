@@ -1,6 +1,6 @@
 Package: hospEpi
 Type: Package
-Title: Assists with Various Hospital Epidemiology Tasks
+Title: Perform Basic Hospital Epidemiology Tasks
 Version: 0.1.0
 Author: Nate Peters <npeters1322@gmail.com>
 Maintainer: Nate Peters <npeters1322@gmail.com>

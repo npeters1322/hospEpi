@@ -1,18 +1,20 @@
-#' @title Constructor to Create a 'disease_expose' Object
+#' @title Constructor to Create a \code{disease_expose} Object
 #'
-#' @description Creates an object of class disease_expose with the data provided
+#' @description Creates an object of class \code{disease_expose} with the data (all disease and exposure columns must be binary) provided
 #'
 #' @param x The \code{\link{data.frame}} containing disease-exposure data
 #' @param disease Quoted name or unquoted numeric value of the column containing the disease status data
 #' @param exposures The column(s) containing exposure data, either given as a vector of quoted names or unquoted numeric values or a single quoted name or unquoted numeric value (if there is only one exposure)
 #'
-#' @return An object of class disease_expose and data.frame containing binary variables for disease and exposure data
+#' @return An object of class \code{disease_expose} and \code{data.frame} containing binary variables for disease and exposure data
 #' @export
 #'
 #' @examples
-#' de_data <- disease_expose_data
-#' cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3"))
-#' de_object <- new_disease_expose(cleaned_de_data, disease = 1, exposures = 2:8)
+#' de_data <- disease_expose_data # use example data from package
+#'
+#' cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c("exposure1", "exposure2", "exposure3")) # clean the data
+#'
+#' de_object <- new_disease_expose(cleaned_de_data, disease = 1, exposures = 2:8) # make a new disease_expose object
 new_disease_expose <- function(x, disease, exposures) {
 
   stopifnot(is.data.frame(x), length(disease) == 1)

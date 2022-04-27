@@ -1,13 +1,15 @@
-#' Plot a hosp_network Object
+#' @title Plot a \code{hosp_network} Object
+#'
+#' @description Create a network graph of your patient location history data
 #'
 #' @details \code{edge.arrow.size}, \code{edge.curved}, \code{vertex.label}, \code{vertex.label.cex}, \code{vertex.size}, \code{asp}, \code{layout}, and \code{main} are the \code{\link{plot.igraph}} options already given by this function, so to do more customization, please choose other options.
 #'
 #' @param x An object of class \code{hosp_network}
 #' @param by Two options, either \code{'unit'} or \code{'room'}, telling whether to graph by unit or room interconnectivity
-#' @param type Three options, either \code{'simple'}, \code{'hub score'}, or \code{'authority score'}, telling how the nodes should be sized. Simple graphs the nodes as all the same size, while the other two graph the nodes with sizes corresponding to their respective scores (see \code{\link{hub_score}} and \code{\link{authority_score}}.
-#' @param ... Additional arguments to be passed to \code{\link{plot.igraph}}, such as \code{vertex.color}. The ones already set are listed in the details above.
+#' @param type Three options, either \code{'simple'}, \code{'hub score'}, or \code{'authority score'}, telling how the nodes should be sized. Simple graphs the nodes as all the same size, while the other two graph the nodes with sizes corresponding to their respective scores (see \code{\link{hub_score}} and \code{\link{authority_score}}).
+#' @param ... Additional arguments to be passed to \code{\link{plot.igraph}}, such as \code{vertex.color}. The ones already set are listed in the details section.
 #'
-#' @return Returns NULL, invisibly, as the \code{\link{plot.igraph}} is used to output the plot
+#' @return Returns NULL, invisibly, as \code{\link{plot.igraph}} is used to output the plot
 #' @export
 #'
 #' @importFrom igraph graph_from_data_frame plot.igraph hub_score authority_score layout.fruchterman.reingold

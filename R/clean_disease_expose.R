@@ -17,18 +17,18 @@
 #'
 #' cleaned2 <- clean_disease_expose(data = de_data, disease = "disease", noDisease = "No", exposures = c(3,4,5)) # clean the data again, but use the number of each exposure column instead
 #'
-#' cleaned3 <- clean_disease_expose(data = de_data, disease = 2, exposures = c("exposure1", "exposure2", "exposure3")) # clean the data, but use the number of the disease column instead of the name
+#' cleaned3 <- clean_disease_expose(data = de_data, disease = 2, exposures = c("exposure1", "exposure2", "exposure3")) # clean the data, but use the number of the disease column instead of the name and don't give a noDisease value
 clean_disease_expose <- function(data, disease, noDisease = NULL, exposures) {
 
   data <- as.data.frame(data)
 
   if(is.numeric(disease)) {
 
-    disease <- names(data)[disease]
+    disease <- names(data)[disease][1]
 
   } else {
 
-    disease <- disease
+    disease <- disease[1]
 
   }
 

@@ -1,6 +1,6 @@
 #' @title Calculate Various Statistics for an Epidemiological Analysis
 #'
-#' @description Calculate various statistics common in an epidemiological analysis, such as incidence, risk ratio, odds ratio, Fisher's exact, and Chi-square
+#' @description Calculate various statistics common in an epidemiological analysis, such as incidence, risk ratio, odds ratio, Fisher's exact, and Chi-square, for a single disease-exposure combination
 #'
 #' @param disease The disease column, made up of 1s and 0s
 #' @param exposure The exposure column, made up of 1s and 0s

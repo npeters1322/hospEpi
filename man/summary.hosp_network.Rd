@@ -2,19 +2,19 @@
 % Please edit documentation in R/summary.hosp_network.R
 \name{summary.hosp_network}
 \alias{summary.hosp_network}
-\title{Create a Summary of the Data for a hosp_network Object}
+\title{Create a Summary of a \code{hosp_network} Object}
 \usage{
 \method{summary}{hosp_network}(object, by = c("unit", "room"), ...)
 }
 \arguments{
 \item{object}{An object of class \code{hosp_network}}
 
-\item{by}{Two options, either \code{'unit'} or \code{'room'}, telling whether to graph by unit or room interconnectivity}
+\item{by}{Two options, either \code{'unit'} or \code{'room'}, telling whether to summarize the network by unit or room interconnectivity}
 
-\item{...}{Additional arguments to be passed to \code{\link{hub_score}} and \code{\link{authority_score}}, such as \code{scale}. The ones already set are listed in the details above.}
+\item{...}{Additional arguments to be passed to \code{\link{hub_score}} and \code{\link{authority_score}}, such as \code{scale}. The one already set is listed in the details section.}
 }
 \value{
-A list containing the edges, nodes, largest cliques, hub score, authority score, edge density, mean distance, betweenness, reciprocity, degree, Eigen centrality, and assortativity degree of the network given by the object. Check out the following help pages to learn more about the functions used to calculate statistics:
+A list containing the edges, nodes, largest cliques, hub score, authority score, edge density, mean distance, betweenness, reciprocity, degree, Eigen centrality, and assortativity degree of the network given in the object. Check out the following help pages to learn more about the functions used to calculate statistics:
 \itemize{
   \item Largest Cliques - \code{\link{largest_cliques}}
   \item Hub Score - \code{\link{hub_score}}
@@ -29,7 +29,7 @@ A list containing the edges, nodes, largest cliques, hub score, authority score,
 }
 }
 \description{
-Create a Summary of the Data for a hosp_network Object
+Summarize a \code{hosp_network} object by finding various statistics (hub score, authority score, Eigen centrality, etc.) for the network.
 }
 \details{
 \code{weights} is the \code{\link{hub_score}} and \code{\link{authority_score}} option already given in this function, so to do more customization, please choose other options.

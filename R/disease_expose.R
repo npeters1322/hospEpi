@@ -1,10 +1,10 @@
-#' @title Helper to Create a 'disease_expose' Object
+#' @title Helper to Create a \code{disease_expose} Object
 #'
-#' @description Creates an object of class disease_expose with the data provided and selected in the Shiny gadget
+#' @description Creates an object of class \code{disease_expose} with the data provided and selected in the Shiny gadget
 #'
-#' @param x The \code{\link{data.frame}} containing disease-exposure data
+#' @param x The \code{\link{data.frame}} containing disease-exposure data, with all disease and exposure columns as binary variables
 #'
-#' @return An object of class disease_expose and data.frame containing binary variables for disease and exposure data
+#' @return An object of class \code{disease_expose} and \code{data.frame} containing binary variables for disease and exposure data
 #' @export
 #'
 #' @importFrom miniUI miniPage gadgetTitleBar miniContentPanel

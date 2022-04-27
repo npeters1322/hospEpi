@@ -1,4 +1,6 @@
-#' Helper Function to Create an Object of Class hosp_network
+#' Helper Function to Create an Object of Class \code{hosp_network}
+#'
+#' @description Creates an object of class \code{hosp_network} with the data and columns provided, allowing functions for \code{hosp_network} objects to be used
 #'
 #' @param x A \code{\link{data.frame}} containing the patient location history data
 #' @param fromUnit Optional, unquoted column name from \code{x} containing the from unit data
@@ -6,7 +8,7 @@
 #' @param fromRoom Optional, unquoted column name from \code{x} containing the from room data
 #' @param toRoom Optional, unquoted column name from \code{x} containing the to room data
 #'
-#' @return An object of class hosp_network
+#' @return An object of class \code{hosp_network} and \code{data.frame}
 #' @export
 #'
 #' @examples

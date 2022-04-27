@@ -2,24 +2,24 @@
 % Please edit documentation in R/new_hosp_network.R
 \name{new_hosp_network}
 \alias{new_hosp_network}
-\title{Constructor to Create an Object of Class hosp_network}
+\title{Constructor to Create an Object of Class \code{hosp_network}}
 \usage{
 new_hosp_network(x, fromUnit, toUnit, fromRoom, toRoom)
 }
 \arguments{
 \item{x}{A \code{\link{data.frame}} containing the patient location history data provided to \code{\link{hosp_network}}}
 
-\item{fromUnit}{Optional, unquoted column name from \code{x} containing the from unit data provided to \code{\link{hosp_network}}}
+\item{fromUnit}{Optional column name from \code{x} containing the from unit data provided to \code{\link{hosp_network}}}
 
-\item{toUnit}{Optional, unquoted column name from \code{x} containing the to unit data provided to \code{\link{hosp_network}}}
+\item{toUnit}{Optional column name from \code{x} containing the to unit data provided to \code{\link{hosp_network}}}
 
-\item{fromRoom}{Optional, unquoted column name from \code{x} containing the from room data provided to \code{\link{hosp_network}}}
+\item{fromRoom}{Optional column name from \code{x} containing the from room data provided to \code{\link{hosp_network}}}
 
-\item{toRoom}{Optional, unquoted column name from \code{x} containing the to room data provided to \code{\link{hosp_network}}}
+\item{toRoom}{Optional column name from \code{x} containing the to room data provided to \code{\link{hosp_network}}}
 }
 \value{
-An object of class hosp_network
+An object of class \code{hosp_network}
 }
 \description{
-Constructor to Create an Object of Class hosp_network
+Constructor to Create an Object of Class \code{hosp_network}
 }

@@ -15,5 +15,5 @@ epi_stats(disease, exposure)
 A \code{\link{data.frame}} with one row containing various statistics in the columns
 }
 \description{
-Calculate various statistics common in an epidemiological analysis, such as incidence, risk ratio, odds ratio, Fisher's exact, and Chi-square
+Calculate various statistics common in an epidemiological analysis, such as incidence, risk ratio, odds ratio, Fisher's exact, and Chi-square, for a single disease-exposure combination
 }

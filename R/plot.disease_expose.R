@@ -1,4 +1,4 @@
-#' @title Plot Data for disease_expose Object
+#' @title Plot a \code{disease_expose} Object
 #'
 #' @description Create grouped bar charts for each disease-exposure combination on one page
 #'

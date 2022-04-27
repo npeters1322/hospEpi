@@ -6,14 +6,14 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of hospEpi is to provide useful functions for epidemiological
+The goal of `hospEpi` is to provide useful functions for epidemiological
 analyses in a hospital setting. Functions so far deal with summarizing
 and plotting patient location history data and disease-exposure (or risk
 factor) data.
 
 ## Installation
 
-You can install the development version of hospEpi like so:
+You can install the development version of `hospEpi` like so:
 
 ``` r
 devtools::install_github("npeters1322/hospEpi", build_vignettes = TRUE)
@@ -67,13 +67,13 @@ head(cleaned_de_data)
 #> 6                          0                       1                     0
 ```
 
-As you can see above, all columns are now binary. If you look back the
-example data before it was cleaned, you’ll see that for the first
+As you can see above, all columns are now binary. If you look back at
+the example data before it was cleaned, you’ll see that for the first
 person, exposure3 was “child.” Now, in the cleaned dataset, there is a
-binary column for exposure3_child, and the first row is marked as 1
+binary column for `exposure3_child`, and the first row is marked as 1
 because that person was marked as a child in the original dataset.
 
-With cleaned data, we can now make an object of class ‘disease_expose.’
+With cleaned data, we can now make an object of class `disease_expose`.
 There are specific summary and plot functions in my package to work with
 objects of that class, so if you want to use those, you must create an
 object like so:
@@ -85,18 +85,18 @@ class(de_object)
 
     #> [1] "disease_expose" "data.frame"
 
-Calling the disease_expose function will pull up a Shiny gadget, which
+Calling the `disease_expose` function will pull up a Shiny gadget, which
 will allow you to choose your disease column and any exposure columns
 you want to bring along from your data, and then it will create an
-object of class ‘disease_expose’ if you receive no errors. If a Shiny
+object of class `disease_expose` if you receive no errors. If a Shiny
 gadget is not your thing, you can also manually do everything (choose
 your disease column and exposure columns by typing them into the
-function) by using the ‘new_disease_expose’ function.
+function) by using the `new_disease_expose` function.
 
-Now that you have a ‘disease_expose’ object, you can plot it by simply
+Now that you have a `disease_expose` object, you can plot it by simply
 calling the plot function with the necessary arguments. The only
-required argument is the ‘disease_expose’ object, but you can also add
-additional arguments that will be passed to the geom_bar function. For
+required argument is the `disease_expose` object, but you can also add
+additional arguments that will be passed to the `geom_bar` function. For
 example:
 
 ``` r
@@ -148,8 +148,9 @@ de_summ
 ```
 
 As you can see, the function outputs several different statistics for
-each disease-exposure combination and saves them in a data.frame, which
-would allow for easy extraction if wanted.
+each disease-exposure combination and saves them in a `data.frame`,
+which would allow for easy extraction if wanted.
 
 There are also multiple functions for patient location history data, and
-you can find out how to use those in the package vignette.
+you can find out how to use those by reading the package vignette or the
+help documentation for the functions.

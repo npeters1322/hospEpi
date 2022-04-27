@@ -2,18 +2,18 @@
 % Please edit documentation in R/disease_expose.R
 \name{disease_expose}
 \alias{disease_expose}
-\title{Helper to Create a 'disease_expose' Object}
+\title{Helper to Create a \code{disease_expose} Object}
 \usage{
 disease_expose(x)
 }
 \arguments{
-\item{x}{The \code{\link{data.frame}} containing disease-exposure data}
+\item{x}{The \code{\link{data.frame}} containing disease-exposure data, with all disease and exposure columns as binary variables}
 }
 \value{
-An object of class disease_expose and data.frame containing binary variables for disease and exposure data
+An object of class \code{disease_expose} and \code{data.frame} containing binary variables for disease and exposure data
 }
 \description{
-Creates an object of class disease_expose with the data provided and selected in the Shiny gadget
+Creates an object of class \code{disease_expose} with the data provided and selected in the Shiny gadget
 }
 \examples{
 \dontrun{

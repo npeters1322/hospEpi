@@ -2,20 +2,20 @@
 % Please edit documentation in R/summary.disease_expose.R
 \name{summary.disease_expose}
 \alias{summary.disease_expose}
-\title{Summarize Disease-Exposure Data}
+\title{Summarize a \code{disease_expose} Object}
 \usage{
 \method{summary}{disease_expose}(object, ...)
 }
 \arguments{
 \item{object}{an object of class \code{disease_expose}, created with \code{\link{disease_expose}}}
 
-\item{...}{additional arguments to be passed to \code{\link{rbindlist}}, such as \code{fill}}
+\item{...}{additional arguments, besides \code{l}, to be passed to \code{\link{rbindlist}}, such as \code{fill}}
 }
 \value{
 A \code{\link{data.frame}} object containing statistics for each disease-exposure combination
 }
 \description{
-Summarize disease-exposure data by finding various statistics (incidence, risk ratio, odds ratio, Fisher p-value, Chi-square p-value) for each disease-exposure combination.
+Summarize disease-exposure data by finding various statistics (incidence, risk ratio, odds ratio, Fisher p-value, Chi-square p-value) for each disease-exposure combination in the \code{disease_expose} object.
 }
 \examples{
 de_data <- disease_expose_data # use the example data in the package

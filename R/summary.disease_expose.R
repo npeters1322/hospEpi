@@ -1,9 +1,9 @@
-#' @title Summarize Disease-Exposure Data
+#' @title Summarize a \code{disease_expose} Object
 #'
-#' @description Summarize disease-exposure data by finding various statistics (incidence, risk ratio, odds ratio, Fisher p-value, Chi-square p-value) for each disease-exposure combination.
+#' @description Summarize disease-exposure data by finding various statistics (incidence, risk ratio, odds ratio, Fisher p-value, Chi-square p-value) for each disease-exposure combination in the \code{disease_expose} object.
 #'
 #' @param object an object of class \code{disease_expose}, created with \code{\link{disease_expose}}
-#' @param ... additional arguments to be passed to \code{\link{rbindlist}}, such as \code{fill}
+#' @param ... additional arguments, besides \code{l}, to be passed to \code{\link{rbindlist}}, such as \code{fill}
 #'
 #' @return A \code{\link{data.frame}} object containing statistics for each disease-exposure combination
 #' @export

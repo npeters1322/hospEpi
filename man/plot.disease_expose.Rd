@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.disease_expose.R
 \name{plot.disease_expose}
 \alias{plot.disease_expose}
-\title{Plot Data for disease_expose Object}
+\title{Plot a \code{disease_expose} Object}
 \usage{
 \method{plot}{disease_expose}(x, ...)
 }
