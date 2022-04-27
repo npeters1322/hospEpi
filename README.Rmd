@@ -27,8 +27,10 @@ The goal of hospEpi is to provide useful functions for epidemiological analyses 
 You can install the development version of hospEpi like so:
 
 ``` r
-devtools::install_github("npeters1322/hospEpi")
+devtools::install_github("npeters1322/hospEpi", build_vignettes = TRUE)
 ```
+
+Using `build_vignettes = TRUE` makes sure the package vignette is built when you install the package, which might be useful if you want to explore the vignette.
 
 ## Example
 
@@ -36,7 +38,7 @@ After loading the package, say you have some disease-exposure data you want to p
 
 ```{r}
 #use the example disease-exposure dataset from the package
-de_data <- disease_exposure_data
+de_data <- disease_expose_data
 head(de_data)
 ```
 

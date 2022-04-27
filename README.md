@@ -16,8 +16,12 @@ factor) data.
 You can install the development version of hospEpi like so:
 
 ``` r
-devtools::install_github("npeters1322/hospEpi")
+devtools::install_github("npeters1322/hospEpi", build_vignettes = TRUE)
 ```
+
+Using `build_vignettes = TRUE` makes sure the package vignette is built
+when you install the package, which might be useful if you want to
+explore the vignette.
 
 ## Example
 
@@ -28,7 +32,7 @@ the most part) before using any functions.
 
 ``` r
 #use the example disease-exposure dataset from the package
-de_data <- disease_exposure_data
+de_data <- disease_expose_data
 head(de_data)
 #>   id disease exposure1 exposure2        exposure3
 #> 1  1      No         0        No            child
@@ -109,30 +113,38 @@ You can also summarize your data like so:
 ``` r
 de_summ <- summary(de_object)
 de_summ
-#>    Incidence in Exposed Incidence in Unexposed Risk Ratio (RR) RR Lower 95% CI
-#> 1:            0.4701195              0.5140562       0.9145294            0.77
-#> 2:            0.5221239              0.4671533       1.1176715            0.94
-#> 3:            0.4671533              0.5221239       0.8947173            0.75
-#> 4:            0.5333333              0.4789474       1.1135531            0.91
-#> 5:            0.4887218              0.4931880       0.9909442            0.81
-#> 6:            0.5344828              0.4791667       1.1154423            0.91
-#> 7:            0.4198473              0.5176152       0.8111187            0.65
-#>    RR Upper 95% CI Odds Ratio (OR) OR Lower 95% CI OR Upper 95% CI
-#> 1:            1.09       0.8386983            0.59            1.19
-#> 2:            1.33       1.2462384            0.88            1.77
-#> 3:            1.07       0.8024147            0.56            1.14
-#> 4:            1.36       1.2433281            0.82            1.88
-#> 5:            1.21       0.9822879            0.66            1.46
-#> 6:            1.36       1.2479871            0.82            1.89
-#> 7:            1.01       0.6744282            0.45            1.01
-#>    Fisher P-Value Chi-Square P-Value
-#> 1:     0.37104591         0.37179421
-#> 2:     0.24293634         0.25688248
-#> 3:     0.24293634         0.25688248
-#> 4:     0.34595536         0.35021941
-#> 5:     1.00000000         1.00000000
-#> 6:     0.34033555         0.34804377
-#> 7:     0.06689589         0.06858653
+#>                            Incidence in Exposed Incidence in Unexposed
+#> exposure1                             0.4701195              0.5140562
+#> exposure2_No                          0.5221239              0.4671533
+#> exposure2_Yes                         0.4671533              0.5221239
+#> exposure3_child                       0.5333333              0.4789474
+#> exposure3_education worker            0.4887218              0.4931880
+#> exposure3_office worker               0.5344828              0.4791667
+#> exposure3_shop worker                 0.4198473              0.5176152
+#>                            Risk Ratio (RR) RR Lower 95% CI RR Upper 95% CI
+#> exposure1                        0.9145294            0.77            1.09
+#> exposure2_No                     1.1176715            0.94            1.33
+#> exposure2_Yes                    0.8947173            0.75            1.07
+#> exposure3_child                  1.1135531            0.91            1.36
+#> exposure3_education worker       0.9909442            0.81            1.21
+#> exposure3_office worker          1.1154423            0.91            1.36
+#> exposure3_shop worker            0.8111187            0.65            1.01
+#>                            Odds Ratio (OR) OR Lower 95% CI OR Upper 95% CI
+#> exposure1                        0.8386983            0.59            1.19
+#> exposure2_No                     1.2462384            0.88            1.77
+#> exposure2_Yes                    0.8024147            0.56            1.14
+#> exposure3_child                  1.2433281            0.82            1.88
+#> exposure3_education worker       0.9822879            0.66            1.46
+#> exposure3_office worker          1.2479871            0.82            1.89
+#> exposure3_shop worker            0.6744282            0.45            1.01
+#>                            Fisher P-Value Chi-Square P-Value
+#> exposure1                      0.37104591         0.37179421
+#> exposure2_No                   0.24293634         0.25688248
+#> exposure2_Yes                  0.24293634         0.25688248
+#> exposure3_child                0.34595536         0.35021941
+#> exposure3_education worker     1.00000000         1.00000000
+#> exposure3_office worker        0.34033555         0.34804377
+#> exposure3_shop worker          0.06689589         0.06858653
 ```
 
 As you can see, the function outputs several different statistics for
