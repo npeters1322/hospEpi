@@ -4,6 +4,8 @@
 # hospEpi
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/npeters1322/hospEpi/workflows/R-CMD-check/badge.svg)](https://github.com/npeters1322/hospEpi/actions)
 <!-- badges: end -->
 
 The goal of `hospEpi` is to provide useful functions for epidemiological
