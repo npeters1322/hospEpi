@@ -10,7 +10,7 @@
 #'
 #' @importFrom data.table rbindlist
 #'
-#' @section Special Thanks:
+#' @section Thanks:
 #' Special thanks to Josh Sadowski for providing ideas of statistics to use for this function and for providing the bones of this function, which I have added to and edited to make it my own.
 #'
 #' @examples

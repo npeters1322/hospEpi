@@ -34,6 +34,11 @@ Summarize a \code{hosp_network} object by finding various statistics (hub score,
 \details{
 \code{weights} is the \code{\link{hub_score}} and \code{\link{authority_score}} option already given in this function, so to do more customization, please choose other options.
 }
+\section{Thanks}{
+
+Special thanks to Josh Sadowski for providing ideas of statistics to use for this function.
+}
+
 \examples{
 hn_data <- hosp_network_data # read in example data provided in package
 

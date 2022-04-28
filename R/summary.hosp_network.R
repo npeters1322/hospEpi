@@ -26,7 +26,7 @@
 #'
 #' @importFrom igraph graph_from_data_frame largest_cliques hub_score authority_score edge_density mean_distance betweenness reciprocity degree eigen_centrality assortativity_degree
 #'
-#' @section Special Thanks:
+#' @section Thanks:
 #' Special thanks to Josh Sadowski for providing ideas of statistics to use for this function.
 #'
 #' @examples

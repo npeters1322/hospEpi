@@ -17,3 +17,8 @@ A \code{\link{data.frame}} with one row containing various statistics in the col
 \description{
 Calculate various statistics common in an epidemiological analysis, such as incidence, risk ratio, odds ratio, Fisher's exact, and Chi-square, for a single disease-exposure combination
 }
+\section{Thanks}{
+
+Special thanks to Josh Sadowski for providing the bones of this function, which I have added to and edited.
+}
+

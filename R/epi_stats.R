@@ -7,7 +7,7 @@
 #'
 #' @return A \code{\link{data.frame}} with one row containing various statistics in the columns
 #'
-#' @section Special Thanks:
+#' @section Thanks:
 #' Special thanks to Josh Sadowski for providing the bones of this function, which I have added to and edited.
 #'
 #' @importFrom stats chisq.test fisher.test
