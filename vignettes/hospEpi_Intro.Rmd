@@ -51,11 +51,11 @@ head(hn_data)
 To use many of the functions, the data needs to have columns corresponding to the patient's starting room and next room or starting unit and next unit. Looking at the data above, we do not have those columns yet, so let's use the cleaning function to get everything in the right format.
 
 ```{r}
-cleaned_hn_data <- clean_hosp_network(data = hn_data, startDate = BeginDate, 
+cleaned_hn_data <- clean_hosp_network(data = hn_data, uniqueID = UniqueEncountID, startDate = BeginDate, 
                                       endDate = EndDate, unitName = UnitName, 
                                       roomNum = RoomNumber)
-cleaned_hn_data[3:8]
-head(cleaned_hn_data[,3:8])
+
+head(cleaned_hn_data[,4:9])
 ```
 
 Now that we have clean data, we can move on to creating an object of class `hosp_network`, which will allow the plotting and summary functions to be used. To create the object, you will use the below function.
