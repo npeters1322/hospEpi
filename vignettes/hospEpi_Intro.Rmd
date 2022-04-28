@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 The main goal of this package, `hospEpi`, is to provide useful functions for epidemiological analyses in a hospital setting. While many think of disease as coming from the outside to the inside of a hospital, some diseases (hospital-acquired infections) actually occur during patient stays, making it important for there to be teams who are ready to analyze and stop the spread before more are infected.   
 
-The motivation behind this package came during my time as an intern for the Indiana University Health Infection Prevention team, which is made up of healthcare workers who sort of play the roles of hospital epidemiologists (among many other things). My supervisor, Josh Sadowski, is the main analyst on the team, so many of these functions can aid him in the future (and hopefully many others, too!). Some examples of what this package does are that it allows people to easily study patient location history/network data and also disease-exposure/disease-risk factor data.  
+The motivation behind this package came during my time as an intern for the Indiana University Health Infection Prevention team, which is made up of healthcare workers who sort of play the roles of hospital epidemiologists (among many other things). My supervisor, Josh Sadowski, is one of the data analysts on the team, so many of these functions can aid him in the future (and hopefully many others, too!). Some examples of what this package does are that it allows people to easily study patient location history/network data and also disease-exposure/disease-risk factor data.  
 
 As of now, there are multiple other epidemiology R packages, like `epiR` and `epitools`. While those are very useful for epidemiologists, this package works a little differently, as it focuses more on applying tools for analyses in a hospital setting. The functions could certainly be adapted for use outside of a hospital, but the functions might be most useful in a hospital. It also addresses a few challenges that make it stand out as its own project. Those are:  
 
@@ -54,7 +54,8 @@ To use many of the functions, the data needs to have columns corresponding to th
 cleaned_hn_data <- clean_hosp_network(data = hn_data, startDate = BeginDate, 
                                       endDate = EndDate, unitName = UnitName, 
                                       roomNum = RoomNumber)
-head(cleaned_hn_data)
+cleaned_hn_data[3:8]
+head(cleaned_hn_data[,3:8])
 ```
 
 Now that we have clean data, we can move on to creating an object of class `hosp_network`, which will allow the plotting and summary functions to be used. To create the object, you will use the below function.
@@ -78,7 +79,7 @@ plot(hn_object, by = "room", type = "simple")
 plot(hn_object, by = "unit", type = "hub score", vertex.color = "red", vertex.shape = "square")
 ```
 
-In the example on the left, the data is plotted by the room data and all points are the same size. In the example on the right, the specifications were changed to using unit data and making the size of the points be based off the hub score (statistic related to graphs, search if wanting to know more). More arguments were also added, which are arguments that can be passed to `plot.igraph`.  
+They might be hard to read right now, but that is only because they are plotted next to each other, so they do not have as much space to take up. In the example on the left, the data is plotted by the room data and all points are the same size. In the example on the right, the specifications were changed to using unit data and making the size of the points be based off the hub score (statistic related to graphs, search if wanting to know more). More arguments were also added, which are arguments that can be passed to `plot.igraph`.  
 
 Plotting this type of data could be helpful if you want to visualize how patients have moved throughout the hospital. Perhaps patients have recently been contracting a specific disease in the hospital, and you want to find if there are any common rooms or units among them. If that is the case, these plots can help to visualize that.  
 
@@ -118,7 +119,7 @@ cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease",
 head(cleaned_de_data)
 ```
 
-As seen above, all columns are now binary variables, and we are ready to move on to the rest of the functions. Note that although all columns are binary, you might not want every column created by the cleaner function. For example, you might only want one of the two `exposure2_...` columns, as they are just opposites of each other. For now, we will just keep them all.  
+As seen above, all columns are now binary variables, and we are ready to move on to the rest of the functions. Note that although all columns are binary, you might not want every column created by the cleaner function. For example, you might only want one of the two `exposure2_...` columns, as they are just opposites of each other. For now, we will just keep them all, but you can subset your data on your own in the future.  
 
 The next step is creating an object of class `disease_expose`, which will allow you to plot and summarize your data very easily. The best way to do this is by calling the helper function to create the object.
 
