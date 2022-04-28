@@ -1,5 +1,6 @@
 ---
 title: "Introduction to hospEpi"
+author: "Nate Peters"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to hospEpi}
@@ -14,36 +15,40 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Background
+## Introduction/Background
 
-This R package, `hospEpi`, is designed to provide useful functions for epidemiological analyses in a hospital setting. I was motivated to create this package because of my work as an intern for the Indiana University Health Infection Prevention team, as their main analyst, my supervisor, often does work as a hospital epidemiologist of sorts and uses R to do some of his analyses. Some examples of what my package does are that it allows people to easily study patient location history/network data and also disease-exposure/disease-risk factor data. Currently, there are a couple of other R packages that provide tools for epidemiological analyses, like `epiR` and `epitools`. However, my package works a little differently, as it focuses more on applying tools for analyses in a hospital setting. It also addresses a few challenges that make it stand out. Those are:
+The main goal of this package, `hospEpi`, is to provide useful functions for epidemiological analyses in a hospital setting. While many think of disease as coming from the outside to the inside of a hospital, some diseases (hospital-acquired infections) actually occur during patient stays, making it important for there to be teams who are ready to analyze and stop the spread before more are infected.   
 
-* It provides multiple plot functions to quickly visualize some of your data. In other packages for epidemiology, plotting seems to mostly be up to the user to figure out. However, in my package, multiple plot functions are provided to visualize the data. For example, you can visualize the network of patient location history data or see how many of those with a certain exposure/risk factor developed a disease. This functionality sets my package apart from others.
-* It provides multiple cleaning functions, which can help you get your data in the correct format before using the rest of the functions. Oftentimes, packages are made to work with data that is already in a specific format. In the best case scenario, data coming into my functions would also be clean already, but that might not be the case. With that in mind, my package provides a couple of functions to help clean your data. For example, your disease-exposure data might have columns that are not binary (made up of 0s and 1s), which is necessary for multiple functions in my package. Rather than making you take the time to fix all of that on your own, one of my cleaning functions can help to get your data in the correct format. Another cleaning function is also provided for another use, which will be seen later. Providing cleaning functions sets my package apart from others, as it does not make the user do all the work to clean their data.
-* It can easily assist in analyzing multiple exposures/risk factors against a disease, and can quickly report multiple statistics for all of those combinations. In a hospital, you might often look at multiple exposures/risk factors against a disease, like having diabetes, having heart disease, or having surgery during a stay against developing a hospital-acquired disease. Rather than only allowing one to look at one disease-exposure combination at a time, my package has built-in functions that let one study all combinations at once and get many statistics all at once. As a result, you will be able to compare all your exposures against each other to see which seem the most associated with the disease/outcome. 
+The motivation behind this package came during my time as an intern for the Indiana University Health Infection Prevention team, which is made up of healthcare workers who sort of play the roles of hospital epidemiologists (among many other things). My supervisor, Josh Sadowski, is the main analyst on the team, so many of these functions can aid him in the future (and hopefully many others, too!). Some examples of what this package does are that it allows people to easily study patient location history/network data and also disease-exposure/disease-risk factor data.  
 
-As seen, while there are other packages for epidemiological analyses, my package adds other functionality that would be helpful. While initially created for working with hospital data, it could easily be used for other epidemiological analyses. It is not an all-encompassing package, so other epidemiology packages should be checked out, but my package does provide a couple useful tools that are not provided elsewhere.
+As of now, there are multiple other epidemiology R packages, like `epiR` and `epitools`. While those are very useful for epidemiologists, this package works a little differently, as it focuses more on applying tools for analyses in a hospital setting. The functions could certainly be adapted for use outside of a hospital, but the functions might be most useful in a hospital. It also addresses a few challenges that make it stand out as its own project. Those are:  
+
+* It provides multiple plot functions to quickly visualize some of your data. In other packages for epidemiology, plotting seems to mostly be up to the user to do. However, this package provides multiple plotting functions. For example, you can visualize the network of patient location history data or see how many of those with a certain exposure/risk factor developed a disease. This functionality sets this package apart from others made for epidemiology.
+* It provides multiple cleaning functions, which can help you get your data in the correct format before using the rest of the functions. Oftentimes, packages are made to work with data that is already in a specific format. While coming in with clean data is the best case scenario, some cleaning usually needs to be done, and the cleaning functions in this package could help depending on what the data is like. Providing cleaning functions sets this package apart from others, as the user might not have to clean their data perfectly before using the rest of the package.
+* It can easily assist in analyzing multiple exposures/risk factors against a disease, and can quickly report multiple statistics for all of those combinations. In a hospital, you might often look at multiple exposures/risk factors against a disease, like having diabetes, having heart disease, or having surgery during a stay against developing a hospital-acquired disease. Rather than only allowing someone to look at one disease-exposure combination at a time, this package has built-in functions that let one study all combinations at once and get many statistics all at once. As a result, comparing all your exposures against each other to see which seem the most associated with the disease/outcome is easy and makes this package stand out.  
+
+As seen, while there are other packages for epidemiological analyses, my package adds other functionality that might be helpful. While initially created for working with hospital data, it could easily be used for other epidemiological analyses. It is not an all-encompassing package, so other epidemiology packages should be checked out, but this package does provide a couple useful tools that are not provided elsewhere.  
 
 ## How to Use hospEpi
 
-After installing, you can load the library like this:
+After installing the package, you can load it like this:
 
 ```{r setup}
 library(hospEpi)
 ```
 
-As of now, there are two main use cases for this package: analyzing patient location/hospital network data and analyzing disease-exposure/disease-risk factor data. Below, I will walk you through the process of doing each.
+As of now, there are two main use cases for this package: analyzing patient location/hospital network data and analyzing disease-exposure/disease-risk factor data. Below is a walk-through of the process of doing each.
 
 #### Working With Patient Location/Hospital Network Data
 
-A good way to start analyzing hospital network data using this package is to look at the example dataset I have created and to go through the examples using it to see if you need to manipulate your data before using the functions. The example data can be loaded in like so:
+A good way to start analyzing hospital network data using this package is to look at the example dataset that comes with the package and to go through the examples using it to see if you need to manipulate your data before using the functions. The example data can be loaded in like so:
 
 ```{r}
 hn_data <- hosp_network_data
 head(hn_data)
 ```
 
-To use many of the functions, the data needs to have columns corresponding to the patient's starting room and next room or starting unit and next unit. Looking at the data above, we do not have those columns yet, so I will use my cleaning function to get everything in the right format.
+To use many of the functions, the data needs to have columns corresponding to the patient's starting room and next room or starting unit and next unit. Looking at the data above, we do not have those columns yet, so let's use the cleaning function to get everything in the right format.
 
 ```{r}
 cleaned_hn_data <- clean_hosp_network(data = hn_data, startDate = BeginDate, 
@@ -73,7 +78,7 @@ plot(hn_object, by = "room", type = "simple")
 plot(hn_object, by = "unit", type = "hub score", vertex.color = "red", vertex.shape = "square")
 ```
 
-In the example on the left, the data is plotted by the room data and all points are the same size. In the example on the right, the specifications were changed to using unit data and making the size of the points be based off the hub score (statistic related to graphs, search if wanting to know more). I also added more arguments, which are arguments that can be passed to `plot.igraph`.  
+In the example on the left, the data is plotted by the room data and all points are the same size. In the example on the right, the specifications were changed to using unit data and making the size of the points be based off the hub score (statistic related to graphs, search if wanting to know more). More arguments were also added, which are arguments that can be passed to `plot.igraph`.  
 
 Plotting this type of data could be helpful if you want to visualize how patients have moved throughout the hospital. Perhaps patients have recently been contracting a specific disease in the hospital, and you want to find if there are any common rooms or units among them. If that is the case, these plots can help to visualize that.  
 
@@ -81,19 +86,19 @@ You can also summarize your data.
 
 ```{r warning = FALSE}
 hn_summ <- summary(hn_object, by = "room")
-hn_summ[4:6]
+hn_summ[5:6]
 ```
 
 This provides many different statistics related to network graphs, which might be helpful if you are interested in knowing more about your network. You can also change it to work with your unit data, and you can also add more arguments that can be passed to `hub_score` and `authority_score`.
 
 ```{r warning = FALSE}
 hn_summ2 <- summary(hn_object, by = "unit", scale = FALSE)
-hn_summ2[4:6]
+hn_summ2[5:6]
 ```
 
 While network statistics might not be useful to everyone, they can provide numerical information about your network.  
 
-Overall, this half of the package provides useful functions for working with patient location history/patient network data.
+Overall, this half of the package provides useful functions for working with patient location history/patient network data.  
 
 #### Working With Disease-Exposure/Disease-Risk Factor Data
 
@@ -104,7 +109,7 @@ de_data <- disease_expose_data
 head(de_data)
 ```
 
-To use most of my functions, your data must be made of binary columns (0s and 1s). As seen above, the data does not follow that right now, which is why I provided a cleaner function to help, which might also be helpful for you.
+To use most of the functions, your data must be made of binary columns (0s and 1s). As seen above, the data does not follow that right now, which is why a cleaner function is provided to help, which might also be helpful for you.
 
 ```{r}
 cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease", 
@@ -113,7 +118,7 @@ cleaned_de_data <- clean_disease_expose(data = de_data, disease = "disease",
 head(cleaned_de_data)
 ```
 
-As seen above, all columns are now binary variables, and we are ready to move on to the rest of my functions. Note that although all columns are binary, you might not want every column created by the cleaner function. For example, you might only want one of the two `exposure2_...` columns, as they are just opposites of each other. For now, we will just keep them all.  
+As seen above, all columns are now binary variables, and we are ready to move on to the rest of the functions. Note that although all columns are binary, you might not want every column created by the cleaner function. For example, you might only want one of the two `exposure2_...` columns, as they are just opposites of each other. For now, we will just keep them all.  
 
 The next step is creating an object of class `disease_expose`, which will allow you to plot and summarize your data very easily. The best way to do this is by calling the helper function to create the object.
 
@@ -137,7 +142,7 @@ Here is how to plot the data:
 plot(de_object[1:5])
 ```
 
-As you can see, it produces bar charts for each disease-exposure combination in your data. If you want a little more customization, you can also add arguments that can be added to `geom_bar`. One I like to use is `position = 'dodge'`. Making these plots allows you to visualize how the diseased and non-diseased individuals are distributed across exposure status.
+As you can see, it produces bar charts for each disease-exposure combination in your data. If you want a little more customization, you can also add arguments that can be used in `geom_bar`. One that might look good is `position = 'dodge'`. Making these plots allows you to visualize how the diseased and non-diseased individuals are distributed across exposure status.
 
 ```{r fig.width = 7}
 #subset used so viewing is better on document
@@ -154,12 +159,13 @@ As seen above, you now have many different statistics available for each disease
 
 While the `disease_expose` functions are not overly sophisticated, they do provide some simple and quick tools to analyze disease-exposure data that you might have.  
 
-As seen above, my functions have multiple use cases, as they can help to visualize and summarize patient location history/networks and also visualize and summarize disease-exposure/disease-risk factor data, which could both be useful in a hospital setting.
+As seen above, all the functions have multiple use cases, as they can help to visualize and summarize patient location history/networks and also visualize and summarize disease-exposure/disease-risk factor data, which could both be useful in a hospital setting.
 
 ## Future Work and Plans
 
-I have multiple ideas to improve the package in the future. Those are:
+Multiple ideas to improve the package in the future are already being drawn up. Those are:
 
-* To create printing methods for the summary methods of my classes. Right now, when you print the output of the `summary` methods, they are not the most pleasing to the eye, as they are just a `data.frame` and a `list`. I would like to create a printing method which makes viewing the results quick and easy to understand, like when viewing the summary output of an `lm` object. I plan to start with the `disease_expose` class, as I think it will be easier to customize output from a `data.frame`. It will most likely resemble the `data.frame` already created, but one idea I had was to highlight the rows with the most significant results (like the highest odds ratio or another statistic). Also, for the `hosp_network` class, the summary output is quite long, so I plan to just select small details that might be the most important when wanting a small overview of the summary. By creating printing methods for both of my summary methods, the summary output will look cleaner and more understandable when printed, which will be an upgrade.
-* To write functions to help with survival/time-to-event analysis. These types of analyses could be helpful in a hospital setting, as you might want to study how long a certain hospital-acquired infection takes to infect patients, for example. To do this, I plan to research survival/time-to-event analysis and also collaborate with my internship supervisor. I do not know too much about the topic, so researching it will help me understand how I should build my functions and what different statistics mean. Additionally, collaborating with my internship supervisor will allow me to know what things to include in my functions to make them helpful. I will probably try to do something similar with these functions compared to the others, as I will look to possibly provide plotting and summary functions.
-* To provide a more useful plotting function for the `disease_expose` class. Right now, the plotting function plots simple bar charts that show the number of diseased and non-diseased individuals by exposure status. It is a very quick and easy way to visualize disease-exposure data, but it might not be the most useful. Later on, I plan to research common plots that individuals make when studying this type of data, as it might be more useful if I use other types of plots. Since my education does not stretch far into this domain, researching ideas will be the best option, as I can find ideas from experts in the field, rather than relying on my own ideas. If I do not find anything while researching, I will keep the function as is, but if I do find something new, I plan to implement the new idea into a plotting function to make it more useful, while also keeping my simple bar chart plotting function. 
+* To create printing methods for the summary methods of the classes. Right now, when you print the output of the `summary` methods, they are not the most pleasing to the eye, as they are just a `data.frame` and a `list`. Therefore, the plan is to create a printing method which makes viewing the results quick and easy to understand, like when viewing the summary output of an `lm` object. The plan is to start with the `disease_expose` class, as it should be easier to customize output from a `data.frame`. It will most likely resemble the `data.frame` already created, but one idea is to highlight the rows with the most significant results (like the highest odds ratio or another statistic). Also, for the `hosp_network` class, the summary output is quite long, so the plan is to just select small details that might be the most important when wanting a small overview of the summary. By creating printing methods for both of the summary methods in the package so far, the summary output will look cleaner and more understandable when printed, which will be an upgrade.
+* To write functions to help with survival/time-to-event analysis. These types of analyses could be helpful in a hospital setting, as you might want to study how long a certain hospital-acquired infection takes to infect patients, for example. To do this, some research into survival/time-to-event analysis will be necessary to gain more knowledge of the subject to make functions better. Additionally, collaborating with others will be needed because it
+will allow for a better understanding of what to include in functions related to this topic. Most likely, similar things compared to the other classes will be done, as plotting and summary functions will be created.
+* To provide a more useful plotting function for the `disease_expose` class. Right now, the plotting function plots simple bar charts that show the number of diseased and non-diseased individuals by exposure status. It is a very quick and easy way to visualize disease-exposure data, but it might not be the most useful. Later on, the plan is to research common plots that individuals make when studying this type of data, as it might be more useful to use other types of plots. Researching ideas will be the best option to learn more from people who are experts in the field. If nothing is found while researching, the function will be kept as is, but if ideas are found, the plan will be to implement them into a plotting function, while also keeping the simple bar chart plotting function.
