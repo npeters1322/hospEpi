@@ -1,4 +1,4 @@
-#' Helper Function to Create an Object of Class \code{hosp_network}
+#' @title Helper Function to Create an Object of Class \code{hosp_network}
 #'
 #' @description Creates an object of class \code{hosp_network} with the data and columns provided, allowing functions for \code{hosp_network} objects to be used
 #'
