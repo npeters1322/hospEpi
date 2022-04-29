@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## Introduction/Background
 
-The main goal of this package, `hospEpi`, is to provide useful functions for epidemiological analyses in a hospital setting. While many think of disease as coming from the outside to the inside of a hospital, some diseases (hospital-acquired infections) actually occur during patient stays, making it important for there to be teams who are ready to analyze and stop the spread before more are infected.   
+The main goal of `hospEpi` is to provide useful functions for epidemiological analyses in a hospital setting. While many think of disease as coming from the outside to the inside of a hospital, some diseases (hospital-acquired infections) actually occur during patient stays, making it important for there to be teams who are ready to analyze and stop the spread before more are infected.   
 
 The motivation behind this package came during my time as an intern for the Indiana University Health Infection Prevention team, which is made up of healthcare workers who sort of play the roles of hospital epidemiologists (among many other things). My supervisor, Josh Sadowski, is one of the data analysts on the team, so many of these functions can aid him in the future (and hopefully many others, too!). Some examples of what this package does are that it allows people to easily study patient location history/network data and also disease-exposure/disease-risk factor data.  
 
